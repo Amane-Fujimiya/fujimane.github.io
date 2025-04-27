@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Fujimiya Amane">
+<meta name="dcterms.date" content="2021-03-11">
+<meta name="description" content="The preprocessing of data - or what is left of it.">
 
-<title>Amane in the Unknown</title>
+<title>Cleaning data… that sucks – Amane in the Unknown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +23,65 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,20 +109,47 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Amane in the Unknown">
-<meta property="og:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Cleaning data… that sucks – Amane in the Unknown">
+<meta property="og:description" content="The preprocessing of data - or what is left of it.">
+<meta property="og:image" content="https://amane-fujimiya.github.io/blogs/posts/img/blog icon.jpg">
 <meta property="og:site_name" content="Amane in the Unknown">
-<meta property="og:image:height" content="991">
-<meta property="og:image:width" content="1200">
-<meta name="twitter:title" content="Amane in the Unknown">
-<meta name="twitter:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
-<meta name="twitter:image-height" content="991">
-<meta name="twitter:image-width" content="1200">
+<meta name="twitter:title" content="Cleaning data… that sucks – Amane in the Unknown">
+<meta name="twitter:description" content="The preprocessing of data - or what is left of it.">
+<meta name="twitter:image" content="https://amane-fujimiya.github.io/blogs/posts/img/blog icon.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -250,10 +316,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/favicon.ico" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/favicon.ico" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Amane in the Unknown</span>
     </a>
   </div>
@@ -264,35 +330,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./essays/index.html"> 
+    <a class="nav-link" href="../../essays/index.html"> 
 <span class="menu-text">Essays</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sketches/index.html"> 
+    <a class="nav-link" href="../../sketches/index.html"> 
 <span class="menu-text">Sketches</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes/index.html"> 
+    <a class="nav-link" href="../../notes/index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./document/index.qmd"> 
+    <a class="nav-link" href="../../document/index.qmd"> 
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/about.html"> 
+    <a class="nav-link" href="../../about/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./main/index.html"> 
+    <a class="nav-link" href="../../main/index.html"> 
 <span class="menu-text">Main</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blogs/index.html"> 
+    <a class="nav-link" href="../../blogs/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
@@ -313,38 +379,111 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#scaling-feature-values" id="toc-scaling-feature-values" class="nav-link active" data-scroll-target="#scaling-feature-values">Scaling feature values</a></li>
+  <li><a href="#binning" id="toc-binning" class="nav-link" data-scroll-target="#binning">Binning</a></li>
+  <li><a href="#scrubbing" id="toc-scrubbing" class="nav-link" data-scroll-target="#scrubbing">Scrubbing</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="images/blogicon.png" class="about-image
-  rounded " style="width: 20em;">
-<header id="title-block-header" class="quarto-title-block"></header>
-    <div class="about-links">
-  <a href="https://x.com/Fujimiya_Amane_" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://github.com/Amane-Fujimiya" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cleaning data… that sucks</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Physics</div>
+    <div class="quarto-category">theoretical mechanics</div>
   </div>
-  <div class="about-contents"><div id="about-block">
-<p>This is the website of Fujimiya Amane (フヂミヤアマネ), or Bui Gia Khanh (Vietnamese name), an undergraduate student in the Physics Department of Hanoi University of Science, Vietnam National University. Well, I was hoping to change department, nonetheless.</p>
+  </div>
 
-
-</div></div>
+<div>
+  <div class="description">
+    The preprocessing of data - or what is left of it.
+  </div>
 </div>
 
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fujimiya Amane </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 11, 2021</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">September 10, 2021</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Well, for everything, even data, we need to clean them off because even one bad data can affect all of the dataset and the model itself.</p>
+<section id="scaling-feature-values" class="level1">
+<h1>Scaling feature values</h1>
+<p><strong>Scaling</strong>&nbsp;means converting floating-point feature values from their natural range (for example, 100 to 900) into a standard range (for example, 0 to 1 or -1 to +1). If a feature set consists of only a single feature, then scaling provides little to no practical benefit. If, however, a feature set consists of multiple features, then feature scaling provides the following benefits:</p>
+<ul>
+<li>Helps gradient descent converge more quickly.</li>
+<li>Helps avoid the “NaN trap,” in which one number in the model becomes a&nbsp;<a href="https://wikipedia.org/wiki/NaN">NaN</a>&nbsp;(e.g., when a value exceeds the floating-point precision limit during training), and—due to math operations—every other number in the model also eventually becomes a NaN.</li>
+<li>Helps the model learn appropriate weights for each feature. Without feature scaling, the model will pay too much attention to the features having a wider range.</li>
+</ul>
+<p>One way to scale numerical data is to linearly map <span class="math inline">\([min,max]\)</span> to a smaller scale of <span class="math inline">\([-1,1]\)</span> for example. Another way to do it is by using normal distribution, that is: <span class="math display">\[val_{scl}(i) = \frac{val_{i}}{\displaystyle{\sum_{j=1}^{n}val_{j}}}\cdot \sigma\]</span> of which <span class="math display">\[\begin{cases}
+val_{i} \longrightarrow \text{original value} \\
+\sigma \longrightarrow \text{standard deviation} \\
+\displaystyle{\sum_{j=1}^{n}val_{j}} = \mu \longrightarrow \text{mean value}
+\end{cases}\]</span> # Handling extreme outliers We have two techniques: - Logarithmic scale - Clipping/Capping values. Both of which might work or not, in most case. But it is advised to somewhat use both of them because logarithmic scale smooths the graph out, but not always do justice to the outliers.</p>
+</section>
+<section id="binning" class="level1">
+<h1>Binning</h1>
+<p>Binning refers to the act of separating non-linear data and relationship in to “bins” of which contain mostly, linear relation. Hence, we can use linear algebra and make the model learn depends on each bin. What does that mean? It means for each bin, i.e different situation, different set of scenarios, then the model can learn from it the mathematical relationship for each specific bin. ![[Pasted image 20240121160334.png]] For that, we can see that we can make it into equal bins: ![[Pasted image 20240121160415.png]] Instead of having one floating-point feature, we now have 11 distinct boolean features (<code>LatitudeBin1</code>,&nbsp;<code>LatitudeBin2</code>, …,&nbsp;<code>LatitudeBin11</code>). Having 11 separate features is somewhat inelegant, so let’s unite them into a single 11-element vector. Doing so will enable us to represent latitude 37.4 as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++ code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>latitude_vec<span class="op">[</span><span class="dv">11</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="scrubbing" class="level1">
+<h1>Scrubbing</h1>
+<p>Until now, we’ve assumed that all the data used for training and testing was trustworthy. In real-life, many examples in data sets are unreliable due to one or more of the following:</p>
+<ul>
+<li><strong>Omitted values.</strong>&nbsp;For instance, a person forgot to enter a value for a house’s age.</li>
+<li><strong>Duplicate examples.</strong>&nbsp;For example, a server mistakenly uploaded the same logs twice.</li>
+<li><strong>Bad labels.</strong>&nbsp;For instance, a person mislabeled a picture of an oak tree as a maple.</li>
+<li><strong>Bad feature values.</strong>&nbsp;For example, someone typed in an extra digit, or a thermometer was left out in the sun.</li>
+</ul>
+<p>Once detected, you typically “fix” bad examples by removing them from the data set. To detect omitted values or duplicated examples, you can write a simple program. Detecting bad feature values or labels can be far trickier.</p>
+<p>In addition to detecting bad individual examples, you must also detect bad data in the aggregate. Histograms are a great mechanism for visualizing your data in the aggregate. In addition, getting statistics like the following can help:</p>
+<ul>
+<li>Maximum and minimum</li>
+<li>Mean and median</li>
+<li>Standard deviation</li>
+</ul>
+<p>Consider generating lists of the most common values for discrete features. For example, do the number of examples with&nbsp;<code>country:uk</code>&nbsp;match the number you expect. Should&nbsp;<code>language:jp</code>&nbsp;really be the most common language in your data set?</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -362,6 +501,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

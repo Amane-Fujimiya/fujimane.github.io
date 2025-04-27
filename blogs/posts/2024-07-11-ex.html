@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Fujimiya Amane">
+<meta name="dcterms.date" content="2025-04-20">
+<meta name="description" content="After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the \mathcal{L}: the Lagrangian.">
 
-<title>Amane in the Unknown</title>
+<title>An inquiry of theoretical mechanics - the Lagrangian – Amane in the Unknown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,20 +74,53 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Amane in the Unknown">
-<meta property="og:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="An inquiry of theoretical mechanics - the Lagrangian – Amane in the Unknown">
+<meta property="og:description" content="After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the \(\mathcal{L}\): the Lagrangian.">
+<meta property="og:image" content="https://yuxi-liu-wired.github.io/images/asymp.png">
 <meta property="og:site_name" content="Amane in the Unknown">
-<meta property="og:image:height" content="991">
-<meta property="og:image:width" content="1200">
-<meta name="twitter:title" content="Amane in the Unknown">
-<meta name="twitter:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
-<meta name="twitter:image-height" content="991">
-<meta name="twitter:image-width" content="1200">
+<meta property="og:image:alt" content="The typical common classes of asymptotic bounds">
+<meta property="og:image:height" content="332">
+<meta property="og:image:width" content="517">
+<meta name="twitter:title" content="An inquiry of theoretical mechanics - the Lagrangian – Amane in the Unknown">
+<meta name="twitter:description" content="After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the \(\mathcal{L}\): the Lagrangian.">
+<meta name="twitter:image" content="https://yuxi-liu-wired.github.io/images/asymp.png">
+<meta name="twitter:image:alt" content="The typical common classes of asymptotic bounds">
+<meta name="twitter:image-height" content="332">
+<meta name="twitter:image-width" content="517">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -250,10 +287,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/favicon.ico" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/favicon.ico" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Amane in the Unknown</span>
     </a>
   </div>
@@ -264,35 +301,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./essays/index.html"> 
+    <a class="nav-link" href="../../essays/index.html"> 
 <span class="menu-text">Essays</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sketches/index.html"> 
+    <a class="nav-link" href="../../sketches/index.html"> 
 <span class="menu-text">Sketches</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes/index.html"> 
+    <a class="nav-link" href="../../notes/index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./document/index.qmd"> 
+    <a class="nav-link" href="../../docs/index.html"> 
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/about.html"> 
+    <a class="nav-link" href="../../about/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./main/index.html"> 
+    <a class="nav-link" href="../../main/index.html"> 
 <span class="menu-text">Main</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blogs/index.html"> 
+    <a class="nav-link" href="../../blogs/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
@@ -313,38 +350,217 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#concept" id="toc-concept" class="nav-link active" data-scroll-target="#concept">Concept</a>
+  <ul class="collapse">
+  <li><a href="#algorithms-runtime-analysis" id="toc-algorithms-runtime-analysis" class="nav-link" data-scroll-target="#algorithms-runtime-analysis">Algorithms Runtime Analysis</a></li>
+  </ul></li>
+  <li><a href="#asymptotic-analysis-of-functions" id="toc-asymptotic-analysis-of-functions" class="nav-link" data-scroll-target="#asymptotic-analysis-of-functions">Asymptotic Analysis of functions</a>
+  <ul class="collapse">
+  <li><a href="#upper-bound---big-o-notation" id="toc-upper-bound---big-o-notation" class="nav-link" data-scroll-target="#upper-bound---big-o-notation">Upper bound - Big <span class="math inline">\(O\)</span> notation</a></li>
+  </ul></li>
+  <li><a href="#asymptotic-complexity-classes" id="toc-asymptotic-complexity-classes" class="nav-link" data-scroll-target="#asymptotic-complexity-classes">Asymptotic-Complexity Classes</a></li>
+  <li><a href="#asymptotic-lower-bounds---big-omega-notation" id="toc-asymptotic-lower-bounds---big-omega-notation" class="nav-link" data-scroll-target="#asymptotic-lower-bounds---big-omega-notation">Asymptotic Lower Bounds - Big <span class="math inline">\(\Omega\)</span> Notation</a></li>
+  <li><a href="#asymptotic-tight-bounds---big-theta-notation" id="toc-asymptotic-tight-bounds---big-theta-notation" class="nav-link" data-scroll-target="#asymptotic-tight-bounds---big-theta-notation">Asymptotic Tight Bounds - Big <span class="math inline">\(\Theta\)</span> Notation</a>
+  <ul class="collapse">
+  <li><a href="#proof" id="toc-proof" class="nav-link" data-scroll-target="#proof">Proof</a></li>
+  </ul></li>
+  <li><a href="#little-o-notation" id="toc-little-o-notation" class="nav-link" data-scroll-target="#little-o-notation">Little <span class="math inline">\(o\)</span> Notation</a></li>
+  <li><a href="#little-omega-notation" id="toc-little-omega-notation" class="nav-link" data-scroll-target="#little-omega-notation">Little <span class="math inline">\(\omega\)</span> Notation</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="images/blogicon.png" class="about-image
-  rounded " style="width: 20em;">
-<header id="title-block-header" class="quarto-title-block"></header>
-    <div class="about-links">
-  <a href="https://x.com/Fujimiya_Amane_" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://github.com/Amane-Fujimiya" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">An inquiry of theoretical mechanics - the Lagrangian</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Physics</div>
+    <div class="quarto-category">theoretical mechanics</div>
   </div>
-  <div class="about-contents"><div id="about-block">
-<p>This is the website of Fujimiya Amane (フヂミヤアマネ), or Bui Gia Khanh (Vietnamese name), an undergraduate student in the Physics Department of Hanoi University of Science, Vietnam National University. Well, I was hoping to change department, nonetheless.</p>
+  </div>
 
-
-</div></div>
+<div>
+  <div class="description">
+    After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the <span class="math inline">\(\mathcal{L}\)</span>: the Lagrangian.
+  </div>
 </div>
 
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fujimiya Amane </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 20, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">April 26, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>It’s been a while since I started learning theoretical computer science, and I think perhaps, I should do a bit of refactoring, and looking back the basic. One of such basic is the one that I pretty much struggled back in the day, very, that is asymptotic analysis.</p>
+<section id="concept" class="level1">
+<h1>Concept</h1>
+<section id="algorithms-runtime-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="algorithms-runtime-analysis">Algorithms Runtime Analysis</h2>
+<p>We want to measure runtime as a function of size of input. Note that this does not depend on machine, operating system or language. <strong>Size of input</strong> is usually number of bits needed to encode the input instance, can be length of an array.</p>
+<p>There is an underlying assumption that all elementary operation takes a constant amount of time. ## Best/Worst/Average case For a fixed input size there could be different runtime depending on the actual instance. We are generally interested in the worst case behaviour.</p>
+<p>Let <span class="math inline">\(T(I)\)</span> be time, algorithm takes on an instance <span class="math inline">\(I\)</span>. The best case running time is defined to be the minimum value of <span class="math inline">\(T(I)\)</span> over all instances of the same size <span class="math inline">\(n\)</span>.</p>
+<p>Hence, 1. Best case:</p>
+<p><span class="math display">\[t_{best}(n)=\mathrm{MIN}_{I:\lvert I \rvert =n}\{ T(I) \}\]</span></p>
+<ol start="2" type="1">
+<li>Worst case:</li>
+</ol>
+<p><span class="math display">\[t_{best}(n)=\mathrm{MAX}_{I:\lvert I \rvert =n}\{ T(I) \}\]</span></p>
+<ol start="3" type="1">
+<li>Average case:</li>
+</ol>
+<p><span class="math display">\[t_{best}(n)=\mathrm{AVERAGE}_{I:\lvert I \rvert =n}\{ T(I) \}\]</span></p>
+</section>
+</section>
+<section id="asymptotic-analysis-of-functions" class="level1">
+<h1>Asymptotic Analysis of functions</h1>
+<p>Asymptotic analysis consider growth of functions on large inputs.</p>
+<p>The asymptotic behavior of <span class="math inline">\(f(n)\)</span> refers to the growth of <span class="math inline">\(f\)</span> as <span class="math inline">\(n\)</span> gets large. Asymptotic analysis of function enables us to compare functions.</p>
+<section id="upper-bound---big-o-notation" class="level2">
+<h2 class="anchored" data-anchor-id="upper-bound---big-o-notation">Upper bound - Big <span class="math inline">\(O\)</span> notation</h2>
+<blockquote class="blockquote">
+<p>Big <span class="math inline">\(O\)</span> notation</p>
+<p>A function <span class="math inline">\(g(n)\in O(f(n))\)</span> if there exists constant <span class="math inline">\(c&gt;0\)</span> and <span class="math inline">\(n_{0}\geq 0\)</span> such that <span class="math display">\[g(n)\leq cf(n)\quad \forall n\geq n_{0}\]</span> This can be interpreted as the expansion of the definition of <span class="math inline">\(a\leq b\)</span> to functions.</p>
+</blockquote>
+<p>This says that <span class="math inline">\(g(n)\)</span> is kind of less than <span class="math inline">\(f(n)\)</span> for all values of the domain bigger than the threshold <span class="math inline">\(n_{0}\)</span>, to a certain ratio.</p>
+<p>Various way to refer to this are <span class="math inline">\(g(n)\)</span> is asymptotically dominated by <span class="math inline">\(f(n)\)</span>. Here we then define <span class="math inline">\(f(n)\)</span> as the asymptotic upper bound on <span class="math inline">\(g(n)\)</span>. By the abuse of notation law (which should, and should not exist), we denote</p>
+<p><span class="math display">\[g(n)=O(f(n))\]</span></p>
+<p>for convenience. ## Rule for function simplification Some rules that help simplify functions by omitting dominated terms and ignoring coefficients.</p>
+<ol type="1">
+<li><span class="math inline">\(n^{a}\)</span> dominates <span class="math inline">\(n^{b}\)</span> if <span class="math inline">\(a&gt;b\)</span>.</li>
+<li>Multiplicative constants can be omitted.</li>
+<li>Any exponential dominates any polynomial.</li>
+<li>Any polynomial dominates any logarithm.</li>
+</ol>
+</section>
+</section>
+<section id="asymptotic-complexity-classes" class="level1">
+<h1>Asymptotic-Complexity Classes</h1>
+<p>There are complexity classes of function that usually occur in algorithm analysis.</p>
+<p><img src="../..\images/asymp.png" class="img-fluid" alt="The typical common classes of asymptotic bounds">{: .align-center} The function grow faster from right to left, i.e.&nbsp;</p>
+<p><span class="math display">\[n!\gg 2^{n}\gg n^{3}\gg n^{2}\gg n\log{(n)}\gg n\gg \log{(n)}\gg 1\]</span></p>
+<p>Here <span class="math inline">\(a\gg b\)</span> means that <span class="math inline">\(a\)</span> is much larger than <span class="math inline">\(b\)</span>. The case <span class="math inline">\(O(1)\)</span> is the best possible case in this consideration.</p>
+</section>
+<section id="asymptotic-lower-bounds---big-omega-notation" class="level1">
+<h1>Asymptotic Lower Bounds - Big <span class="math inline">\(\Omega\)</span> Notation</h1>
+<blockquote class="blockquote">
+<p>Big <span class="math inline">\(\Omega\)</span> Notation</p>
+<p>A function <span class="math inline">\(g(n)\in \Omega(f(n))\)</span> if there exists constant <span class="math inline">\(c&gt;0\)</span> and <span class="math inline">\(n_{0}\geq 0\)</span> such that <span class="math display">\[g(n)\geq cf(n)\quad \forall n\geq n_{0}\]</span></p>
+</blockquote>
+<p>We write this as <span class="math inline">\(g(n)\in \Omega(f(n))\)</span>. <span class="math inline">\(g\)</span> in this case as being asymptotically lower bounded by <span class="math inline">\(f\)</span>. By this, we also have the reverse condition:</p>
+<p><span class="math display">\[g(n)\in O(f(n))\iff f(n)\in \Omega(g(n))\]</span></p>
+<div class="callout callout-style-simple callout-none no-icon" data-markdown="span">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This is a callout. It can be used to make an aside without disrupting the flow of the main document.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="asymptotic-tight-bounds---big-theta-notation" class="level1">
+<h1>Asymptotic Tight Bounds - Big <span class="math inline">\(\Theta\)</span> Notation</h1>
+<p>We have the following definition:</p>
+<blockquote class="blockquote">
+<p>Big <span class="math inline">\(\Theta\)</span> Notation</p>
+<p>A function <span class="math inline">\(g(n)\)</span> is <span class="math inline">\(\Theta(n)\)</span> <em>iff</em> there exists two positive real constants <span class="math inline">\(c_{1},c_{2}\)</span> and <span class="math inline">\(n_{0}\in\mathbb{Z}^{+}\)</span> such that</p>
+<p><span class="math display">\[c_{1}f(n)\leq g(n)\leq c_{2}f(n)\]</span></p>
+<p>For all <span class="math inline">\(n&gt;n_{0}\)</span>, and <span class="math inline">\(n_{0}=max[n_{1},n_{2}]\)</span>.</p>
+</blockquote>
+<p>This effectively puts a tight bound including the lower limit of the central tendency. The notation for this can also be <span class="math inline">\(f \asymp g\)</span>, such that <span class="math display">\[\Theta(g) = \{ f: \mathbb{N}\to \mathbb{R}\mid f\asymp g \}\]</span> is the set of functions that have the same order of growth as <span class="math inline">\(g\)</span>. If <span class="math inline">\(f\in\Theta(g)\)</span> or <span class="math inline">\(f \asymp g\)</span>, we say that <span class="math inline">\(g\)</span> is an asymptotically tight bound for <span class="math inline">\(f\)</span>.</p>
+<blockquote class="blockquote">
+<p>Proposition on <span class="math inline">\(\Theta(g)\)</span></p>
+<p>Let <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> be functions from <span class="math inline">\(\mathbb{N}\to \mathbb{R}\)</span>. If <span class="math inline">\(g\)</span> is a positive function and the limit</p>
+<p><span class="math display">\[d=\lim_{ n \to \infty } \frac{|f(n)|}{|g(n)|}\]</span></p>
+<p>exists and is a nonzero real number <span class="math inline">\(d\)</span>, then <span class="math inline">\(f\in\Theta(g)\)</span>.</p>
+</blockquote>
+<section id="proof" class="level2">
+<h2 class="anchored" data-anchor-id="proof">Proof</h2>
+<p>It follows from the definition of the limit that for each <span class="math inline">\(\epsilon&gt;0\)</span>, there exists a natural number <span class="math inline">\(n_{\epsilon}\)</span> such that</p>
+<p><span class="math display">\[d-\epsilon \leq \frac{|f(n)|}{|g(n)|} \leq d+\epsilon\]</span></p>
+<p>for all <span class="math inline">\(n\geq n_{\epsilon}\)</span>. In other words, for the constant <span class="math inline">\(c=d-\epsilon\)</span> and <span class="math inline">\(C=d+\epsilon\)</span>, there exists an <span class="math inline">\(n_{\epsilon}\)</span> such that</p>
+<p><span class="math display">\[c|g(n)|\leq|f(n)|\leq C|g(n)|\]</span></p>
+<p>holds for all <span class="math inline">\(n\geq n_{\epsilon}\)</span>, which proves that <span class="math inline">\(f\in\Theta(g)\)</span>.</p>
+<p>From this, we also give the corollary as followed:</p>
+<blockquote class="blockquote">
+<p>If two functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are asymptotically equal, <span class="math inline">\(f\sim g\)</span>, then they have the same order of growth, that is, <span class="math inline">\(f\asymp g\)</span>.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="little-o-notation" class="level1">
+<h1>Little <span class="math inline">\(o\)</span> Notation</h1>
+<p>We have the following definition:</p>
+<blockquote class="blockquote">
+<p>A function <span class="math inline">\(g(n)\in o(f(n))\)</span> if for every constant <span class="math inline">\(c&gt; 0\)</span>, there exists a constant <span class="math inline">\(n_{0}\geq 0\)</span> such that</p>
+<p><span class="math display">\[g(n)\leq cf(n)\quad \forall n\geq n_{0}\]</span></p>
+</blockquote>
+<p>This definition is used to show that <span class="math inline">\(g\)</span> grows much slower than <span class="math inline">\(f\)</span>. We also have that</p>
+<p><span class="math display">\[f(n)\in o(g(n))\iff \begin{cases}
+f(n)\in O(g(n)) \\
+f(n) \not\in \Theta(g(n))
+\end{cases}\]</span></p>
+<p>By the definition of little <span class="math inline">\(o\)</span> notation, we can also see it has a dampening effect - for <span class="math inline">\(O(f(n))\)</span>, you have that there exists a <span class="math inline">\(c&gt;0\)</span>, here, we have for all <span class="math inline">\(c&gt;0\)</span>. An equivalent formulation when <span class="math inline">\(f(n)\)</span> is non-zero is given as:</p>
+<p><span class="math display">\[\lim_{ n \to \infty } \frac{g(n)}{f(n)} = 0\]</span></p>
+</section>
+<section id="little-omega-notation" class="level1">
+<h1>Little <span class="math inline">\(\omega\)</span> Notation</h1>
+<blockquote class="blockquote">
+<p>A function <span class="math inline">\(g(n)\in \omega(f(n))\)</span> if for every constant <span class="math inline">\(c&gt;0\)</span>, there exists constant <span class="math inline">\(n_{0}\geq 0\)</span> such that</p>
+<p><span class="math display">\[g(n)\geq cf(n)\quad\forall n \geq n_{0}\]</span></p>
+</blockquote>
+<p>This is written as <span class="math inline">\(g(n)\in \omega(f(n))\)</span>, and is used to indicate the larger lower bound of <span class="math inline">\(\Omega(f(n))\)</span> - <span class="math inline">\(f\)</span> grows much faster than <span class="math inline">\(g\)</span>.</p>
+<hr>
+</section>
+<section id="reference" class="level1">
+<h1>Reference</h1>
+<ul>
+<li><a href="https://web.lums.edu.pk/~imdad/pdfs/CS310_Notes/CS310-Notes-02-Algorithms-Analysis-Complexity-Classes-Big-Oh.pdf">CS310 - Algorithm - Lecture 5</a></li>
+<li><a href="https://lucatrevisan.github.io/notes/complexitynotes02.pdf">Lecture Notes on computational complexities (Luca Trevisan)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation#Little-o_notation">Wikipedia page on Asymptotic Notation</a> - It seems, for the present, little <span class="math inline">\(o\)</span> notation do not have many usages.</li>
+</ul>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -362,6 +578,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -425,7 +648,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/amane-fujimiya\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/yuxi-liu-wired\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

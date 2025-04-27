@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Fujimiya Amane">
+<meta name="dcterms.date" content="2025-04-20">
+<meta name="description" content="After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the \mathcal{L}: the Lagrangian.">
 
-<title>Amane in the Unknown</title>
+<title>An inquiry of theoretical mechanics - the Lagrangian – Amane in the Unknown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,20 +74,51 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Amane in the Unknown">
-<meta property="og:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="An inquiry of theoretical mechanics - the Lagrangian – Amane in the Unknown">
+<meta property="og:description" content="After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the \(\mathcal{L}\): the Lagrangian.">
+<meta property="og:image" content="https://amane-fujimiya.github.io/notes/posts/img/lagrange.png">
 <meta property="og:site_name" content="Amane in the Unknown">
-<meta property="og:image:height" content="991">
-<meta property="og:image:width" content="1200">
-<meta name="twitter:title" content="Amane in the Unknown">
-<meta name="twitter:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
-<meta name="twitter:image-height" content="991">
-<meta name="twitter:image-width" content="1200">
+<meta property="og:image:height" content="901">
+<meta property="og:image:width" content="1044">
+<meta name="twitter:title" content="An inquiry of theoretical mechanics - the Lagrangian – Amane in the Unknown">
+<meta name="twitter:description" content="After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the \(\mathcal{L}\): the Lagrangian.">
+<meta name="twitter:image" content="https://amane-fujimiya.github.io/notes/posts/img/lagrange.png">
+<meta name="twitter:image-height" content="901">
+<meta name="twitter:image-width" content="1044">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -250,10 +285,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/favicon.ico" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/favicon.ico" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Amane in the Unknown</span>
     </a>
   </div>
@@ -264,35 +299,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./essays/index.html"> 
+    <a class="nav-link" href="../../essays/index.html"> 
 <span class="menu-text">Essays</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sketches/index.html"> 
+    <a class="nav-link" href="../../sketches/index.html"> 
 <span class="menu-text">Sketches</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes/index.html"> 
+    <a class="nav-link" href="../../notes/index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./document/index.qmd"> 
+    <a class="nav-link" href="../../document/index.qmd"> 
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/about.html"> 
+    <a class="nav-link" href="../../about/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./main/index.html"> 
+    <a class="nav-link" href="../../main/index.html"> 
 <span class="menu-text">Main</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blogs/index.html"> 
+    <a class="nav-link" href="../../blogs/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
@@ -313,37 +348,121 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#calculus-of-variation" id="toc-calculus-of-variation" class="nav-link active" data-scroll-target="#calculus-of-variation">Calculus of variation</a>
+  <ul class="collapse">
+  <li><a href="#shortest-path-between-two-points" id="toc-shortest-path-between-two-points" class="nav-link" data-scroll-target="#shortest-path-between-two-points">Shortest path between two points</a></li>
+  <li><a href="#the-euler-lagrange-equation" id="toc-the-euler-lagrange-equation" class="nav-link" data-scroll-target="#the-euler-lagrange-equation">The Euler-Lagrange Equation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="images/blogicon.png" class="about-image
-  rounded " style="width: 20em;">
-<header id="title-block-header" class="quarto-title-block"></header>
-    <div class="about-links">
-  <a href="https://x.com/Fujimiya_Amane_" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://github.com/Amane-Fujimiya" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">An inquiry of theoretical mechanics - the Lagrangian</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Physics</div>
+    <div class="quarto-category">theoretical mechanics</div>
   </div>
-  <div class="about-contents"><div id="about-block">
-<p>This is the website of Fujimiya Amane (フヂミヤアマネ), or Bui Gia Khanh (Vietnamese name), an undergraduate student in the Physics Department of Hanoi University of Science, Vietnam National University. Well, I was hoping to change department, nonetheless.</p>
+  </div>
 
-
-</div></div>
+<div>
+  <div class="description">
+    After a while of using Newtonian formalism for physics, many saw its disadvantages and the cumbersome tasks of making it work for dynamically complex system. Fortuntately, someone indeed stood up and gives us the <span class="math inline">\(\mathcal{L}\)</span>: the Lagrangian.
+  </div>
 </div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fujimiya Amane </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 20, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">April 26, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>At some point after learning all the basic of Newtonian formalism of physical law, one may want to apply it to real world problem. This is no big deal, as far as we are concerned of… Unless, one wants to apply it to higher, more complex system. At that point, the problem become not so trivial. Not so trivial how, well, later on we will see. For now, we only have to know that a fine gentleman named Joseph-Louis Lagrange (ジョゼフ＝ルイ・ラグランジュ), gave us the more likely approach to mechanics - the <strong>Lagrangian mechanics</strong>.</p>
+<blockquote class="blockquote">
+<p>There are two ways to see mechanics and its principles. The first one is by considering it as a theory of forces, the causes that impress motion. The second is by considering it as a theory of motions themselves. (Lazare Carnot, 1803)</p>
+</blockquote>
+<section id="calculus-of-variation" class="level1 page-columns page-full">
+<h1>Calculus of variation</h1>
+<p>It seems like a tradition - that every course of Lagrangian mechanics and beyond (Hamiltonian mechanics) begins with the discussion of the <strong>calculus of variation</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. So, per tradition, we will also begin with such. It is to noticed, for the one who just started learning about Lagrangian mechanics that it will seem so unncessary. But, later on, perhaps one’s perspective will change.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Well, it is in fact, not coincidental. Another name of Lagrangian mechanics is called the <em>variational physics</em>.</p></div></div><section id="shortest-path-between-two-points" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="shortest-path-between-two-points">Shortest path between two points</h2>
+<p>Given two points <span class="math inline">\((x_{1}, y_{1})\)</span> and <span class="math inline">\((x_{2}, y_{2})\)</span>, what is the shortest path between them, given by a path <span class="math inline">\(y=y(x)\)</span>? Assuming the space is continuous (so do Euclid’s favour), then we might say that the shortest path is the straight line. But how do we formulate such?</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="img/DiagramPathStraight.png" class="img-fluid figure-img"></p>
+<figcaption class="margin-caption">The illustrative shortest path problem - why is straight line the fastest?</figcaption>
+</figure>
+</div>
+<p>We can indeed calculate the length of the path by using the arc length, which gives us: <span class="math display">\[
+L(1,2) = \int_{1}^{2} \: ds = \int_{x_{1}}^{x_{2}} \sqrt{1+y'(x)^{2}} \: dx
+\]</span> This is applicable for all path functional <span class="math inline">\(y(x)\)</span> that gives us the desired path. If we want to somehow prove that the shortest path is indeed straight, then we will have to find if the straight formulation is indeed the <em>minimum</em> in such case. Do remember however, that the minimum of an integral, is not taking it to be zero area. Rather, it is to prove that the length is wised enough to be straight. We are finding a function, and having to make it to be straight - which will satisfy our problem statement. You can think of the integral as being bounded below by the minimum, if that makes sense. If that does not help, then imagine this: that function <span class="math inline">\(\sqrt{1+y'(x)^{2}}\)</span> is not going to be zero. But you can fine the minimum of it regardless of any addition form <span class="math inline">\(\mu(x)\)</span> added on top.</p>
+<p>The problem that we are facing is interestingly interpretable as the problem of finding the <strong>stationary point</strong> - the point where if you wiggle around a bit, nothing will particularly change of the state of the system. Our concern is hence how the infinitesimal variations of a path change an integral - in which perhaps we want it to… not move that much? For such reason, comes the title of this section being calculus of variations.</p>
+</section>
+<section id="the-euler-lagrange-equation" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-euler-lagrange-equation">The Euler-Lagrange Equation</h2>
+<p>We can rewrite the integral as <span class="math display">\[
+S= \int_{x_{1}}^{x_{2}} f[y(x),y'(x),x]\: dx
+\]</span> where <span class="math inline">\(y(x)\)</span> is the unknown curve joining two points 1 and 2. We have the condition that <span class="math inline">\(y(x_1) = y_1\)</span>, and <span class="math inline">\(y(x_2)=y_2\)</span> for such reason. How about the wrong version? The class of all wrong curves can be defined to be <span class="math inline">\(Y(x)\)</span> of the additional length term, <span class="math inline">\(\eta(x)\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The formulation is hence <span class="math display">\[
+Y(x) = y(x) + \alpha \eta (x) , \quad \eta: \mathbb{R}^{n} \to \mathbb{R}
+\]</span> If the factor <span class="math inline">\(\alpha=0\)</span>, we get the original curve. If not, we get the wrong curve, ideally for <span class="math inline">\(\alpha =1\)</span>. Unfortunately, this formation will be dependent of the difference function <span class="math inline">\(\eta\)</span>, since it is strictly restricted to the linearity expression <span class="math inline">\(\alpha \eta(x)\)</span>. Nevertheless, we have that <span class="math inline">\(\eta(x_1)=\eta(x_2)=0\)</span>, to satisfies the endpoint requirement of a path.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Last time, we used <span class="math inline">\(\mu(x)\)</span>. Now, we kinda… switch the notation a bit.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;This comes from the derivation of the integration by part, for the endpoint already eliminated the first term, hence.</p></div></div><p>From our formulation, we imply that the right curve is found at <span class="math inline">\(\alpha = 0\)</span>, or rather, the stationary state is achieved at such point, for the integral, now called <span class="math inline">\(S(\alpha)\)</span>. We have converted our problem to the traditional problem of making sure that an ordinary function <span class="math inline">\(S(\alpha)\)</span> has a minimum at a specified point. To do this, we again, take the derivative. <span class="math display">\[
+\begin{split}
+S(\alpha) &amp; = \int_{x_{1}}^{x_{2}} f(Y,Y',x)\: dx\\
+&amp; = \int_{x_{1}}^{x_{2}} f(y+\alpha \eta, y'+\alpha \eta', x)\: dx\\
+\end{split}
+\]</span> From this, <span class="math display">\[
+\frac{dS}{d\alpha} = \int_{x_{1}}^{x_{2}} \frac{\partial f}{\partial \alpha} \: dx = \int_{x_{1}}^{x_{2}} \left( \eta \frac{\partial f}{\partial y} + \eta \frac{\partial f}{\partial y'} \right)\: dx
+\]</span> which is derived of the chain rule. Now we need this integral to be zero, that is: <span class="math display">\[
+\int_{x_{1}}^{x_{2}} \left( \eta \frac{\partial f}{\partial y} + \eta \frac{\partial f}{\partial y'} \right)\: dx =0
+\]</span> This condition must hold for any <span class="math inline">\(\eta(x)\)</span> satisfying the requirement only, for any choice of the wrong path. The integral can be simplified to <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <span class="math display">\[
+\int_{x_{1}}^{x_{2}} \eta(x) \frac{\partial f}{\partial y'} \: dx = - \int_{x_{1}}^{x_{2}} -\eta(x)\frac{d}{dx}\left( \frac{\partial f}{\partial y'} \right) \: dx
+\]</span></p>
+<p>Substituting this in, the original equation, we gain:</p>
+<p><span class="math display">\[
+\int_{x_{1}}^{x_{2}} \eta(x) \frac{\partial f}{\partial y'} \: dx = - \int_{x_{1}}^{x_{2}} -\eta(x)\frac{d}{dx}\left( \frac{\partial f}{\partial y'} \right) \: dx
+\]</span></p>
+
+
+</section>
+</section>
 
 
 </main> <!-- /main -->
@@ -362,6 +481,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

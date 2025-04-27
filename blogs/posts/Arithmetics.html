@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Fujimiya Amane">
+<meta name="dcterms.date" content="2024-10-23">
 
-<title>Amane in the Unknown</title>
+<title>Arithmetics – Amane in the Unknown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-352d86000b8551449f8b28dcc7a192db.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-88fab889d9a1503e3790e0b15abd5104.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,20 +73,47 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Amane in the Unknown">
-<meta property="og:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Arithmetics – Amane in the Unknown">
+<meta property="og:description" content="The journey to find the truth. Or whatever skewed version of it">
+<meta property="og:image" content="https://amane-fujimiya.github.io/blogs/posts/img/blog icon.jpg">
 <meta property="og:site_name" content="Amane in the Unknown">
-<meta property="og:image:height" content="991">
-<meta property="og:image:width" content="1200">
-<meta name="twitter:title" content="Amane in the Unknown">
-<meta name="twitter:image" content="https://amane-fujimiya.github.io/images/blogicon.png">
-<meta name="twitter:image-height" content="991">
-<meta name="twitter:image-width" content="1200">
+<meta name="twitter:title" content="Arithmetics – Amane in the Unknown">
+<meta name="twitter:description" content="The journey to find the truth. Or whatever skewed version of it">
+<meta name="twitter:image" content="https://amane-fujimiya.github.io/blogs/posts/img/blog icon.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -250,10 +280,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/favicon.ico" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/favicon.ico" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Amane in the Unknown</span>
     </a>
   </div>
@@ -264,35 +294,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./essays/index.html"> 
+    <a class="nav-link" href="../../essays/index.html"> 
 <span class="menu-text">Essays</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sketches/index.html"> 
+    <a class="nav-link" href="../../sketches/index.html"> 
 <span class="menu-text">Sketches</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes/index.html"> 
+    <a class="nav-link" href="../../notes/index.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./document/index.qmd"> 
+    <a class="nav-link" href="../../document/index.qmd"> 
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/about.html"> 
+    <a class="nav-link" href="../../about/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./main/index.html"> 
+    <a class="nav-link" href="../../main/index.html"> 
 <span class="menu-text">Main</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blogs/index.html"> 
+    <a class="nav-link" href="../../blogs/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
@@ -313,38 +343,109 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#natural-numbers" id="toc-natural-numbers" class="nav-link active" data-scroll-target="#natural-numbers">1. Natural Numbers</a></li>
+  <li><a href="#integers" id="toc-integers" class="nav-link" data-scroll-target="#integers">2. Integers</a></li>
+  <li><a href="#rational-numbers" id="toc-rational-numbers" class="nav-link" data-scroll-target="#rational-numbers">3. Rational Numbers</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="images/blogicon.png" class="about-image
-  rounded " style="width: 20em;">
-<header id="title-block-header" class="quarto-title-block"></header>
-    <div class="about-links">
-  <a href="https://x.com/Fujimiya_Amane_" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://github.com/Amane-Fujimiya" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Arithmetics</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Blogs</div>
+    <div class="quarto-category">daily</div>
   </div>
-  <div class="about-contents"><div id="about-block">
-<p>This is the website of Fujimiya Amane (フヂミヤアマネ), or Bui Gia Khanh (Vietnamese name), an undergraduate student in the Physics Department of Hanoi University of Science, Vietnam National University. Well, I was hoping to change department, nonetheless.</p>
+  </div>
 
 
-</div></div>
-</div>
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fujimiya Amane </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 23, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Arithmetic works on numbers, so it is good for us to define numbers that it will eventually works on.</p>
+<p>There are a few types of numbers that comprises in elementary mathematics:</p>
+<section id="natural-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="natural-numbers">1. Natural Numbers</h2>
+<p>Natural numbers are numbers, that by definition of being nature as can be presented clearly in reality (as far as the ancient time). They are sometimes called positive numbers, albeit the calling has a larger scope. Denoted as <span class="math inline">\(\mathbb{N}\)</span>, the set of natural numbers contains all numbers of the type: <span class="math display">\[\mathbb{N}=\{ 0,1,2,\dots,n \}\]</span> Of which <span class="math inline">\(n\)</span> is supposed to stretch to infinity. The notion of infinity will be talked about later. If we want to remove the element <span class="math inline">\(0\)</span>, then: <span class="math display">\[\mathbb{N}\setminus \{ 0 \}= \mathbb{N}^{*}=\{ 1,2,\dots,n \}\]</span> Often times, we also call natural numbers as discrete numbers, since their values are constant, that is, there are no continuous variations in-between.</p>
+</section>
+<section id="integers" class="level2">
+<h2 class="anchored" data-anchor-id="integers">2. Integers</h2>
+<p>Integers are the expansion of natural numbers, including negative numbers, the reversal of positive numbers. The notation is <span class="math inline">\(\mathbb{Z}\)</span>, and is defined as: <span class="math display">\[\mathbb{Z}=\{ -n,\dots,-2,-1,0,1,2,\dots,n \}\]</span> As we can see, the integers can be said to contains the reflection of the natural numbers over a given axis of order. The notion of negative numbers in itself is difficult to explain, hence we will try to explain it elsewhere.</p>
+<p>Since we also have negative numbers, we need to understand also why we set it as <span class="math inline">\(-n \to 0 \to n\)</span>. We define the basic unit base value being <span class="math inline">\(1\)</span>. We set the central, beginning point at <span class="math inline">\(0\)</span>. Then, since numbers are the quantification of objects, we can say that the magnitude of the quantity that values have can be extract using the absolute value operation, <span class="math inline">\(||\)</span>. We have: <span class="math display">\[a&gt;0, \lvert a \rvert = a\]</span> then <span class="math display">\[-a&lt;0, \lvert -a \rvert =a\]</span> Geometrically, we are seeing the magnitude of the distance from <span class="math inline">\(0\)</span> to the given value, hence we do not want to contain the signs.</p>
+<p>Hence, we see that they stretch out to infinity on both sides, then the distance unsigned will stretch eventually to infinity. On a number line, of which is the representation of numbers according to a fixed “distance”, signs is used to differentiate between directions of expansions.</p>
+<p>Now, we denote the set of positive integers as <span class="math inline">\(\mathbb{Z}^{+}\)</span>, and negative numbers as <span class="math inline">\(\mathbb{Z^{-}}\)</span>. Since <span class="math inline">\(0\)</span> is a special number, of which we will talk about later, it does not being to either of the two sets. The set of integers without the special member <span class="math inline">\(0\)</span> is denoted <span class="math inline">\(\mathbb{Z}^{*}\)</span> Hence: <span class="math display">\[\mathbb{Z} = \{ \mathbb{Z}^{+}, 0, \mathbb{Z^{-}} \}=\{ \mathbb{Z}^{+},\mathbb{Z}^{*},\mathbb{Z}^{-} \}\]</span> Negative numbers and positive numbers interacts with each other accordingly to rules:</p>
+$$a, b
+<span class="math display">\[\begin{cases}  
+-b \in \mathbb{Z^{+}}\\
+-a \in \mathbb{Z^{-}}\\
+\text{if } a &gt; b, a + b &gt; 0 \\
+\text{if } a &lt; b, a + b &lt; 0 \\
+a - b = a + (-b) \in \mathbb{Z^{+}}  \\
+ab \in \mathbb{Z^{-}} \\
+a\cdot (-b) \in \mathbb{Z^{+}}\\
+(-a)\cdot b \in \mathbb{Z^{+}} \\
+
+\end{cases}\]</span>
+<p><span class="math display">\[
+From those property we also can see then \]</span>(-a)(-b)$$ and many more. As you can see, we did not define the division operation for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. We will then proceed with the division operation for now, to complete the ruleset theorem.</p>
+<p>We define the division <span class="math inline">\(\displaystyle{\frac{a}{b}}\)</span> as valid for our comparison in <span class="math inline">\(\mathbb{Z}\)</span> if <span class="math display">\[\forall a\in \mathbb{Z},b \in \mathbb{Z}^{*}, \frac{a}{b} = k, k \in \mathbb{Z}\quad (1)\]</span> The general division, of which are under another bigger set, <span class="math inline">\(\mathbb{R}\)</span> are given a little bit different: <span class="math display">\[\forall a,k,r\in \mathbb{R},b\in \mathbb{R}^{+}, \frac{a}{b} = k+\frac{r}{b}\]</span> Which means that <span class="math display">\[a=kb+r\]</span> Then we have with <span class="math inline">\((1)\)</span>: <span class="math display">\[\forall a\in \mathbb{Z},b \in \mathbb{Z}^{*}\longrightarrow\begin{cases}
+\displaystyle{\frac{a}{b}} &gt; 0 &amp; \text{ if } a &gt; 0, b &gt; 0 \\
+\displaystyle{\frac{a}{b}} &lt; 0 &amp; \text{ if } a &gt; 0, b &lt; 0\text{ or } a &lt; 0, b &gt; 0    \\
+\end{cases}\]</span> This then can be switched in comparison to <span class="math inline">\(-a\)</span> or <span class="math inline">\(-b\)</span> accordingly. Also, we also have <span class="math inline">\(b\neq 0\)</span> under every circumstances. This is called division by zero problem, and per arithmetic or modern arithmetic, it is not allow, or undefined.</p>
+<p>The way of division is very confusing, of course, because of the fact that some fractions cannot be introduced or calculated and yields result valid of the set of numbers that it is in, except in larger parts.</p>
+</section>
+<section id="rational-numbers" class="level1">
+<h1>3. Rational Numbers</h1>
+<p>A rational number is a number that can be represented, or created, derived, from the ratio or fraction of two numbers: <span class="math display">\[R=\frac{a}{b}, \forall a,b\in \mathbb{Z}, b \neq 0\]</span> Hence, we would like to have a formal definition for such number.</p>
+<blockquote class="blockquote">
+<p>[!def] Rational Number Given a number <span class="math inline">\(A\)</span>. <span class="math inline">\(A\)</span> is called a <strong>rational number</strong> if it is represented by two others integer, <span class="math inline">\(a,b\)</span> such that: <span class="math display">\[\boxed{A= \frac{a}{b}, \forall a,b\in \mathbb{Z}, b\neq 0}\]</span></p>
+</blockquote>
+<p>The condition here is that the second integer representing the rational number (as well as irrational, for those that we encounter later on) is that <span class="math inline">\(b\neq 0\)</span>. This is to prevent a very special case of mathematics, of dividing to 0.</p>
+<p>Every rational number representation in fractional form is either reducible fraction, or in its most standard, irreducible fraction is preferred. The notion of irreducibility would be introduced later on, because it is worthwhile for a whole section of itself.</p>
+<p>By the virtue of it, we can see that rational numbers are bigger than integers. Denoted <span class="math inline">\(\mathbb{Q}\)</span>, we have by the language of set theory, <span class="math inline">\(\mathbb{Z}\subset \mathbb{Q}\)</span>. Fractional numbers by division brings us, for example, some interesting numbers: <span class="math display">\[\frac{1}{2}=0.5\]</span> both of which are ratio of different form. One would ask why we can represent it as being, <span class="math inline">\(0.5\)</span> and where does this notion applies. We would like to see it for the decimal system that we captured - it is by nature, scalable. What is meant by scalable is by the fact that for a number, a discrete number in reality, for example of the basic case, <span class="math inline">\(1\)</span>, it is formulated using the decimal system of <span class="math inline">\(10\)</span>, which means: <span class="math display">\[1=1\cdot10^{0}+\sum^{\infty}_{n=1}0\cdot 10^{n}\]</span> Hence, we can also extend this definition down to, by borrowing the notion of exponential, to the negative numbers. What does this means is related to the definition of ratio and percentage, though, so we would like to also explain that first for what has been done.</p>
+<p>For a number of any numbers, a ratio can be either, the comparison of some metric, or the division of such numbers. For example, within the confinement of rational numbers, a ratio between two numbers: <span class="math display">\[\text{ratio}=\frac{a}{b}\]</span> meaning comparing the magnitude of <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. Suppose that <span class="math inline">\(a=1,b=4\)</span>, then the ratio would be <span class="math display">\[\frac{a}{b}=\frac{1}{4}\]</span> of which means that <span class="math inline">\(b\)</span> is 4 times bigger than <span class="math inline">\(a\)</span>. Now, by definition, too, ratio is also the act of division - the operation of which is quite confusing to be defined specifically. Hence, we can say that the fraction is telling us for, the division of <span class="math inline">\(1\)</span> into <span class="math inline">\(4\)</span> parts. We will eventually, be able to separate it to <span class="math inline">\(0.25\)</span> for each part, then <span class="math display">\[\frac{1}{4}=0.25\]</span> How are we able to do it? Well, has something to do with the definition of ratio, and why it is related to division. While you are trying to solve for, how much value that can a number <span class="math inline">\(a\)</span> be multiplied - or added by itself how many times can get, up to a value of <span class="math inline">\(b\)</span>, the division operation is the reverse of such multiplication operation. It asks for how much, given <span class="math inline">\(b\)</span> and <span class="math inline">\(a\)</span>, will I need to multiply <span class="math inline">\(a\)</span> with to gain <span class="math inline">\(b\)</span>. Therefore, it serves for the reverse purpose. Division, conveniently, contains in itself the definition of also, ratio. In fact, given an operation of division: <span class="math display">\[\frac{b}{a}=x\]</span> the number <span class="math inline">\(x\)</span> itself is called the ratio of the two numbers.</p>
+<p>Coming back to the topic of interest, we kind of see the thing here. There is one fact about division and its representation in exponential form is being able to be represented by using negative exponent. That means, <span class="math display">\[10^{-1}=\frac{1}{10}\]</span> of which is clearly seen. Of course, this align well with the formal introduction of self-multiplication as positive exponent. Further detail would be discussed later on. ___ We will now explore some interesting features when talking about rational numbers. For two rational numbers to be equal, we say that: <span class="math display">\[\frac{a}{b}=\frac{c}{d}\iff ad=bc\]</span> If both fraction are in canonical form, or being irreducible fractions, then <span class="math display">\[\frac{a}{b}=\frac{c}{d}\iff \begin{cases}
+a=c \\
+b=d
+\end{cases}\]</span> Ordering relationship between rational numbers can be formulated as follow: <span class="math display">\[\frac{a}{b} &lt; \frac{c}{d}\iff ad&lt;bc\]</span> If either denominator is negative, and in which case either numerator being both negative, then each fraction with negative denominator/numerator must be converted to its positive form. That is, <span class="math display">\[\frac{a}{-b}&lt; \frac{c}{-d}\iff \frac{a}{b} &gt; \frac{c}{d}\]</span> The above rule applies, for even numerator case. ## 3.1 Mathematical Operation on <span class="math inline">\(\mathbb{Q}\)</span> ### Addition Two fraction can be added as follow: <span class="math display">\[\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}\]</span> If both fractions are in canonical form, the result is in canonical form iff <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span> are coprime integers. (GCD of both of them is 1). ### Subtraction Defined as follow: <span class="math display">\[\frac{a}{b}-\frac{c}{d}=\frac{ad-bc}{bd}\]</span> Similarly, If both fractions are in canonical form, the result is in canonical form iff <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span> are coprime integers. ### Multiplication The rule for it is as follow: <span class="math display">\[\frac{a}{b}\cdot \frac{c}{d}=\frac{ad}{bd}\]</span> of which will results in a reducible fraction even if both fractions of the LHS is irreducible (or canonical).</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -362,6 +463,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
